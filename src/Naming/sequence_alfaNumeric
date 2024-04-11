@@ -1,0 +1,46 @@
+function scriptFunctionTo(number) {
+    if (isNaN(number)) {
+        return '';
+    }
+    var code = Number(number);
+    if (code < 17) {
+        return String.fromCharCode(code + 64);
+    }
+    if (code < 26) {
+        return String.fromCharCode(code + 65);
+    }
+	if (code < 9999 + 25) {
+		return code - 25;
+	}
+    return '';
+} 
+
+function scriptFunctionFrom(alphaNumber) {
+    if (isNaN(alphaNumber)) {
+        if (alphaNumber == '') {
+            return '';
+        }
+        var code = alphaNumber.charCodeAt(0);
+        if (code < 65 + 17) {
+            return code - 64;
+        }
+        if (code < 65 + 26) {
+            return code - 65;
+        }
+    }
+    return Number(alphaNumber) + 25;
+}
+
+function functionTest(charToTest) {
+    const charResult = scriptFunctionTo(scriptFunctionFrom(charToTest)).toString();
+    const result = charToTest === charResult;
+    // console.log (charResult + " :" + result);
+    return result;
+}
+
+console.log(functionTest('A'));
+console.log(functionTest('P'));
+console.log(functionTest('R'));
+console.log(functionTest('Z'));
+console.log(functionTest('1'));
+console.log(functionTest('8888'));

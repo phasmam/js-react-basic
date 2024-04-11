@@ -8,3 +8,10 @@ console.log(array1.reduce(reducer));
 // 5 + 1 + 2 + 3 + 4
 console.log(array1.reduce(reducer, 8));
 // expected output: 15
+
+
+const array2 = [1, 2, 3, 4];
+
+array2.push(2);
+
+console.log(array2);
